@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+src/gpi_out*/
+src/feature_out/
+src/tests/_tmp_feature_out/
+results/
+results_table.txt
+*.log
