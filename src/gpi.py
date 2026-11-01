@@ -377,4 +377,5 @@ class GPI:
         a = int(self.policy[int(t) % self.T, ix, iy, ith])
         v = self.config.v_space[self.a_v[a]]
         w = self.config.w_space[self.a_w[a]]
-        return [float(v), float(w)]
+        return [float(np.clip(v, utils.v_min, utils.v_max)),
+                float(np.clip(w, utils.w_min, utils.w_max))]

@@ -54,9 +54,10 @@ def test_unsafe_mask_flags_obstacle_center():
     assert found
 
 
-def test_stage_cost_positive_control():
+def test_stage_cost_zero_at_origin_and_positive_for_motion():
     g = make_gpi()
     g.compute_stage_costs()
     ix0 = np.argmin(np.abs(g.ex)); iy0 = np.argmin(np.abs(g.ey))
     ith0 = np.argmin(np.abs(g.eth))
-    assert g.stage[ix0, iy0, ith0].min() > 0
+    assert np.isclose(g.stage[ix0, iy0, ith0, 0, g.nw // 2], 0.0)
+    assert g.stage[ix0, iy0, ith0, -1, g.nw // 2] > 0.0

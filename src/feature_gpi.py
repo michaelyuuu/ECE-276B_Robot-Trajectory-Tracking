@@ -122,4 +122,5 @@ class FeatureGPI:
         a = int(self.policy[int(t) % self.T, ix, iy, ith])
         v = g.config.v_space[g.a_v[a]]
         w = g.config.w_space[g.a_w[a]]
-        return [float(v), float(w)]
+        return [float(np.clip(v, utils.v_min, utils.v_max)),
+                float(np.clip(w, utils.w_min, utils.w_max))]
